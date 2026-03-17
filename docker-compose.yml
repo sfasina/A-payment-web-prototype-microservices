@@ -1,1 +1,29 @@
-sd
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: payment_broker
+    ports:
+      - "5672:5672" 
+      - "15672:15672" 
+    networks:
+      - backend_net
+
+  api:
+    build:
+      context: ./
+      dockerfile: api/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - backend_net
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_URL=tvoje_sestavena_adresa
+
+
+networks:
+  backend_net:
+    driver: bridge

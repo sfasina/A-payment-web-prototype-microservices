@@ -1,0 +1,13 @@
+# ignore file for Docker builds
+.git/
+.gitignore
+
+__pycache__/
+*.py[cod]
+
+README.md
+docker-compose.yml
+
+venv/
+.venv/
+env/
