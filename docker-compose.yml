@@ -10,6 +10,7 @@ services:
     networks:
       - backend_net
 
+#fastAPI service
   api:
     build:
       context: ./
@@ -21,7 +22,7 @@ services:
     depends_on:
       - rabbitmq
     environment:
-      - RABBITMQ_URL=tvoje_sestavena_adresa
+      - RABBITMQ_URL=${RABBITMQ_URL}
 
 
 networks:
