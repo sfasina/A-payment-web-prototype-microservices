@@ -6,5 +6,5 @@ __pycache__/
 # Ignore environment variable files and private keys
 venv/
 .venv/
-env/
+.env
 *.pem
